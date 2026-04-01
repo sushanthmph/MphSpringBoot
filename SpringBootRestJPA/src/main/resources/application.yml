@@ -1,0 +1,44 @@
+#spring.application.name=SpringBootRestJPA
+spring:
+  application:
+    name: SpringBootRestJPA
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mlamarch3
+    username: root
+    password: root@39
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    deserialization:
+      fail-on-null-for-primitives: false
+
+
+server:
+  port: 7798
+
+debug: true
+
+#logging
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss}%-5level %logger{36} -%msg%n"
+  level:
+    root: INFO
+  file:
+    path: logs/
+    name: logs/application.log
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include:
+        - "*"
+  endpoint:
+    health:
+      show-details: always
