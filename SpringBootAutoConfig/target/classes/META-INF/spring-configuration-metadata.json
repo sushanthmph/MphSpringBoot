@@ -1,0 +1,20 @@
+{
+  "groups": [
+    {
+      "name": "my.service",
+      "type": "com.test.service.MyServiceProperties",
+      "sourceType": "com.test.service.MyServiceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "my.service.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.test.service.MyServiceProperties"
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}
