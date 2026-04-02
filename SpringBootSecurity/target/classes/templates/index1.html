@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+<meta charset="ISO-8859-1">
+
+<title>User Authorities</title>
+
+</head>
+
+<body>
+
+<div align="center">	
+
+	<div sec:authorize="isAuthenticated()">
+
+		Welcome <b><span sec:authentication="name">Username</span></b>
+
+		&nbsp;
+
+		<i><span sec:authentication="principal.authorities">Roles</span></i>
+
+	</div>
+
+		
+
+	<form th:action="@{/logout}" method="post">
+
+		<input type="submit" value="Logout" />
+
+	</form>
+
+	
+
+	<h1>AUTHORITY | ACCESS</h1>
+
+	
+
+	<div sec:authorize="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')">
+
+		<a href="user/read">READ USER DATA</a><br><br>
+
+	</div>
+
+	
+
+	<div sec:authorize="hasAuthority('ROLE_ADMIN')">
+
+		<a href="delete">DELETE USER DATA</a><br><br>
+
+		<a href="update">UPDATE USER DATA</a>
+
+	</div>
+
+	
+
+	<div sec:authorize="hasAnyAuthority('ROLE_HR', 'ROLE_EMPLOYEE')">
+
+		<a href="user/hr/onboard">HR | EMPLOYEE</a>
+
+	</div>
+
+	
+
+	
+
+	
+
+</div>
+
+</body>
+
+</html>
