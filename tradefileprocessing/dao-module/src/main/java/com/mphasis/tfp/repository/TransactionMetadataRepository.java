@@ -32,5 +32,4 @@ public interface TransactionMetadataRepository extends JpaRepository<Transaction
             @Param("startDate") LocalDateTime startDate,
             @Param("endDate") LocalDateTime endDate,
             @Param("status") String status);
-    List<TransactionMetadata> findByStatus(String status);
 }
